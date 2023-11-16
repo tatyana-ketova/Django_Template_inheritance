@@ -1,6 +1,7 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from template_inheritance import forms
 from registrapp import models
+from django.urls import reverse
 
 
 # Create your views here.
@@ -25,8 +26,10 @@ def signup_view(request):
                 mobile=form.cleaned_data['mobile']
             )
             instance.save()
-            print("Success")
-            print('Name:' + form.cleaned_data['login'])
-            print('Email:' + form.cleaned_data['email'])
+            return redirect(reverse('thankyou'))
 
     return render(request, 'signup.html', {'form': form})
+
+
+def thankyou_view(request):
+    return render(request, 'thankyou.html')

@@ -19,9 +19,12 @@ from django.urls import path
 from registrapp.views import signup_view
 from registrapp.views import index_view
 from registrapp.views import base_view
+from registrapp.views import thankyou_view
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('signup/', signup_view, name='signup'),
     path('base/', base_view, name='base'),
-    path('', index_view, name='index')
+    path('', index_view, name='index'),
+    path('thankyou/', thankyou_view, name='thankyou'),
 ]
